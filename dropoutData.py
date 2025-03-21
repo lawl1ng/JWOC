@@ -6,7 +6,7 @@ import seaborn as sns
 
 
 # Load the excel file
-df = pd.read_excel("repos/JWOC/dropoutDataJWOC.xlsx", engine="openpyxl")
+df = pd.read_excel("repos/JWOC_copy/dropoutDataJWOC.xlsx", engine="openpyxl")
 
 # Basic EDA
 print(df.head()) # Display the first few rows
@@ -29,6 +29,7 @@ print(df)
 df2 = df[["Program", "Year", "Summary Reason"]]
 df2.rename(columns={"Summary Reason":"Reason"},inplace=True)
 df2.sort_values(by=['Year'])
+print(df2)
 
 # Plot dropouts per year
 df2.Year.value_counts()[df2.Year.unique()].plot(kind='bar', rot=1)
@@ -94,5 +95,5 @@ plt.title("Distribution of Reasons by Year", fontsize=24)
 plt.xlabel("Year", fontsize=24)
 plt.ylabel("Dropout", fontsize=24)
 plt.tick_params(axis="both", labelsize=20)
-plt.legend(fontsize=14)
+plt.legend(fontsize=1)
 plt.show()
